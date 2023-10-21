@@ -1,0 +1,21 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Menu from "../components/Menu.tsx";
+import Clock from "../components/Clock.tsx";
+import SettingsModal from "../components/SettingsModal.tsx";
+import { ContextProvider } from "../context/Context.tsx";
+---
+
+<Layout title="Welcome to Astro.">
+  <ContextProvider>
+    <main
+      class="border-2 bg-main-background h-screen min-w-[375px]  flex flex-col gap-y-10 items-center justify-evenly "
+    >
+      <Menu client:load />
+      <Clock client:load />
+      <SettingsModal client:load />
+    </main>
+  </ContextProvider>
+</Layout>
+
+<style></style>

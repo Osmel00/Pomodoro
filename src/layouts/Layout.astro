@@ -1,0 +1,35 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	
+	 /* creo que no necesito cargar la font del google  */
+	/* @font-face {
+src: url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;600;900&family=Roboto+Slab&family=Space+Mono:wght@400;700&display=swap');
+/* font-family: 'Kumbh Sans', sans-serif;
+font-family: 'Roboto Slab', serif;
+font-family: 'Space Mono', monospace;
+font-display: swap; 
+} */ 
+ 
+
+</style>
