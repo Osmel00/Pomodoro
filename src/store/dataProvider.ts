@@ -1,7 +1,7 @@
 import { create } from "zustand";
 const dataForm = {
     "pomodoro": 25,
-    "short break": 1,
+    "short break": 5,
     "long break": 15,
     "Kumbh-Sans": true,
     "Space-Mono": false,

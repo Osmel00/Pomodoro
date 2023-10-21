@@ -3,8 +3,17 @@ import Circular from "./Circular";
 import { useDataProvider } from "../store/dataProvider";
 
 const Clock = () => {
-  const { menu, formular, auxData, clickMenu, setClickMenu, font, setFont,theme,setTheme } =
-    useDataProvider();
+  const {
+    menu,
+    formular,
+    auxData,
+    clickMenu,
+    setClickMenu,
+    font,
+    setFont,
+    theme,
+    setTheme,
+  } = useDataProvider();
   const [start, setStart] = useState<boolean>(false);
   const [idInterval, setIdInterval] = useState<number>(0);
   const [seconds, setSeconds] = useState<number>(60);
@@ -86,14 +95,15 @@ const Clock = () => {
     if (seconds === 0 && min === 0) {
       clearInterval(idInterval);
       setCont(60 * 1);
+      setMax(60 * 1);
     }
   }, [seconds]);
 
   const startPomodoro = () => {
     setStart((prev) => !prev);
-    if (min === 0 && seconds === 60) setClickMenu(!menu);
+    if (min === 0 && seconds === 60) setClickMenu(!clickMenu);
   };
-
+  
   return (
     <section
       className={`  w-[300px] h-[300px] bg-dark-blue rounded-full  font-${font} md:w-[410px] md:h-[410px]`}
@@ -120,13 +130,13 @@ const Clock = () => {
             </button>
           ) : (
             <button
-              className=" cursor-pointer z-40 absolute bottom-10 text-2xl font-bold text-gray-metal tracking-[0.4em]"
+              className={` border-white cursor-pointer z-40 absolute bottom-10 text-2xl font-bold text-gray-metal tracking-[0.4em] hover:text-${theme}`}
               onClick={startPomodoro}
             >
               {start ? "PAUSE" : "START"}
             </button>
           )}
-          <div className='w-full h-full mx-auto'>
+          <div className="w-full h-full mx-auto">
             <Circular cont={cont} maxValue={max} theme={theme} />
           </div>
         </div>

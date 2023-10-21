@@ -29,17 +29,21 @@ function SettingsModal() {
   return (
     <>
       {/* <!-- Modal toggle --> */}
-      <button className=' hover:animate-spin' onClick={() => setToggleBtn((prev) => !prev)}>
+      <button 
+      
+      className=' hover:animate-spin' onClick={() => setToggleBtn((prev) => !prev)}>
         <SettingsBtn />
       </button>
 
       {/* <!-- Main modal --> */}
-      <div
+      <div 
         className={`${
           !toggleBtn ? "hidden" : "fixed"
         }    inset-0 z-[70] bg-black bg-opacity-30 backdrop-blur-sm w-full p-4 overflow-x-hidden overflow-y-auto  h-screen flex items-center  `}
       >
-        <section className=" rounded-lg  bg-silver-custom  w-[90%] h-full max-h-[600px] mx-auto relative md:w-[540px] ">
+        <section className=" rounded-lg  bg-silver-custom  w-[90%] h-full max-h-[600px] mx-auto relative md:w-[540px] "
+    
+        >
           <div className="text-dark-blue flex justify-between px-5 items-center  border-b-2 py-6 ">
             <h2 className="text-xl font-bold md:text-3xl">Settings</h2>
             <CloseBtn onClick={() => setToggleBtn((prev) => !prev)} />
