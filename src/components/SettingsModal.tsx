@@ -3,7 +3,7 @@ import SettingsBtn from "./SettingsBtn.tsx";
 import CloseBtn from "./Close.tsx";
 import { useDataProvider } from "../store/dataProvider";
 import { motion, AnimatePresence } from "framer-motion";
-
+import Check from "../components/Check.tsx";
 function SettingsModal() {
   const [toggleBtn, setToggleBtn] = useState<boolean>(false);
   const { theme, formular, auxData, addData } = useDataProvider(
@@ -165,8 +165,8 @@ function SettingsModal() {
                         id="orange"
                         defaultChecked ={theme === 'orange'? true: false} 
                       />
-                      <span className={` w-5 h-5  peer-checked:flex peer-checked:justify-center peer-checked:items-center  text-2xl  hidden`}>
-                        <img src="/src/images/check.png" alt="image-check" />
+                      <span className={` w-5 h-5 pt-1 pl-1 peer-checked:flex peer-checked:justify-center peer-checked:items-center  text-2xl  hidden`}>
+                        <Check/>
                       </span>
                     </div>
                   </label>
@@ -180,8 +180,8 @@ function SettingsModal() {
                         id="blue"
                         defaultChecked ={theme === 'light-blue'? true: false} 
                       />
-                      <span className={` w-5 h-5   peer-checked:flex peer-checked:justify-center peer-checked:items-center  text-2xl  hidden`}>
-                        <img src="/src/images/check.png" alt="image-check" />
+                      <span className={` w-5 h-5 pt-1 pl-1  peer-checked:flex peer-checked:justify-center peer-checked:items-center  text-2xl  hidden`}>
+                      <Check/>
                       </span>
                     </div>
                   </label>
@@ -194,8 +194,8 @@ function SettingsModal() {
                         id="purple"
                         defaultChecked ={theme === 'purple'? true: false} 
                       />
-                      <span className={` w-5 h-5   peer-checked:flex peer-checked:justify-center peer-checked:items-center  text-2xl  hidden `}>
-                        <img src="/src/images/check.png" alt="image-check" />
+                      <span className={` w-5 h-5 pt-1 pl-1  peer-checked:flex peer-checked:justify-center peer-checked:items-center  text-2xl  hidden `}>
+                          <Check/>
                       </span>
                     </div>
                   </label>
