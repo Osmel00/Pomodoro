@@ -1,6 +1,6 @@
 import { FC, } from "react";
 import { useDataProvider } from "../store/dataProvider";
-
+import { motion } from "framer-motion"
 const Menu: FC = () => {
   const {menu,setMenu,setClickMenu,clickMenu,font,theme } = useDataProvider();
  
@@ -10,7 +10,11 @@ const Menu: FC = () => {
   };
   
   return (
-    <section className=" w-[327px] h-[150px]  flex flex-col justify-between items-center font-bold text-xs md:w-[373px] md:text-sm">
+    <motion.section 
+    initial={{  opacity: 0 }}
+    animate={{  opacity: 1 }}
+    transition={{ duration: 1 }}
+    className=" w-[327px] h-[150px]  flex flex-col justify-between items-center font-bold text-xs md:w-[373px] md:text-sm">
       <h1 className="font-Space-Mono  text-gray-metal text-3xl md:text-4xl">pomodoro</h1>
       <div className={` menu-container  w-full h-[63px] flex justify-around px-1 items-center rounded-full bg-dark-blue text-gray-metal shadow-2xl font-${font}`}>
         <button
@@ -32,7 +36,7 @@ const Menu: FC = () => {
           long break
         </button>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

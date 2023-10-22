@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Circular from "./Circular";
 import { useDataProvider } from "../store/dataProvider";
-
+import { motion } from "framer-motion"
 const Clock = () => {
   const {
     menu,
@@ -105,7 +105,10 @@ const Clock = () => {
   };
   
   return (
-    <section
+    <motion.section
+    initial={{ x:60 , opacity: 0 }}
+    animate={{ x: 0, opacity: 1 }}
+    transition={{ duration: 1.5 }}
       className={`  w-[300px] h-[300px] bg-dark-blue rounded-full  font-${font} md:w-[410px] md:h-[410px]`}
     >
       <div className=" p-5 w-full h-full rounded-full bg-gradient-to-tl from-[#6F76B9] to-transparent  to-65%">
@@ -122,26 +125,29 @@ const Clock = () => {
               : seconds}{" "}
           </p>
           {min === 0 && seconds === 60 ? (
-            <button
+            <motion.button
+              whileHover={{color:`${theme === 'orange'? '#F87070':theme === 'purple'? '#D881F8': '#70F3F8'}`}}
               onClick={startPomodoro}
               className="cursor-pointer z-40 absolute bottom-10 text-2xl font-bold text-gray-metal tracking-[0.4em]"
             >
               RESTART
-            </button>
+            </motion.button>
           ) : (
-            <button
-              className={` border-white cursor-pointer z-40 absolute bottom-10 text-2xl font-bold text-gray-metal tracking-[0.4em] hover:text-${theme}`}
+            <motion.button
+             
+              whileHover={{color:`${theme === 'orange'? '#F87070':theme === 'purple'? '#D881F8': '#70F3F8'}`}}
+              className={` border-white cursor-pointer z-40 absolute bottom-10 text-2xl font-bold text-gray-metal tracking-[0.4em] `}
               onClick={startPomodoro}
             >
               {start ? "PAUSE" : "START"}
-            </button>
+            </motion.button>
           )}
           <div className="w-full h-full mx-auto">
             <Circular cont={cont} maxValue={max} theme={theme} />
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
