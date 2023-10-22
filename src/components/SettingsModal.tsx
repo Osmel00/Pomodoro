@@ -3,6 +3,7 @@ import SettingsBtn from "./SettingsBtn.tsx";
 import CloseBtn from "./Close.tsx";
 import { useDataProvider } from "../store/dataProvider";
 import { motion, AnimatePresence } from "framer-motion";
+
 function SettingsModal() {
   const [toggleBtn, setToggleBtn] = useState<boolean>(false);
   const { theme, formular, auxData, addData } = useDataProvider(
@@ -162,10 +163,10 @@ function SettingsModal() {
                         type="radio"
                         name="colors"
                         id="orange"
-                        defaultChecked
+                        defaultChecked ={theme === 'orange'? true: false} 
                       />
-                      <span className="  peer-checked:flex peer-checked:justify-center peer-checked:items-center  text-2xl hidden  ">
-                        🗸
+                      <span className={` w-5 h-5  peer-checked:flex peer-checked:justify-center peer-checked:items-center  text-2xl  hidden`}>
+                        <img src="/src/images/check.png" alt="image-check" />
                       </span>
                     </div>
                   </label>
@@ -177,9 +178,10 @@ function SettingsModal() {
                         type="radio"
                         name="colors"
                         id="blue"
+                        defaultChecked ={theme === 'light-blue'? true: false} 
                       />
-                      <span className="  peer-checked:flex peer-checked:justify-center peer-checked:items-center  text-2xl hidden  ">
-                        🗸
+                      <span className={` w-5 h-5   peer-checked:flex peer-checked:justify-center peer-checked:items-center  text-2xl  hidden`}>
+                        <img src="/src/images/check.png" alt="image-check" />
                       </span>
                     </div>
                   </label>
@@ -190,9 +192,10 @@ function SettingsModal() {
                         type="radio"
                         name="colors"
                         id="purple"
+                        defaultChecked ={theme === 'purple'? true: false} 
                       />
-                      <span className="  peer-checked:flex peer-checked:justify-center peer-checked:items-center  text-2xl hidden  ">
-                        🗸
+                      <span className={` w-5 h-5   peer-checked:flex peer-checked:justify-center peer-checked:items-center  text-2xl  hidden `}>
+                        <img src="/src/images/check.png" alt="image-check" />
                       </span>
                     </div>
                   </label>
